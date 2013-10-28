@@ -1,0 +1,15 @@
+parameters:
+
+    mailer_transport: smtp
+    mailer_host: smtp.mydomain.com
+    mailer_user: com-mydomain-contact
+    mailer_password: password
+    mailer_encryption: tls
+    mailer_auth_mode: plain
+
+    locale: fr_FR
+    secret: c9636dfd1ecc4099c2b871076a9188dc4
+
+    # Assetic
+    assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images/
+    assetic.filter.compass.http_path:  /images/

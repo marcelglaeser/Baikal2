@@ -1,0 +1,31 @@
+netgusto_baikal_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: NetgustoBaikalFrontendBundle:Default:index }
+
+netgusto_baikal_frontend_calendar_list:
+    pattern:  /calendars/
+    defaults: { _controller: NetgustoBaikalFrontendBundle:Calendar:list }
+
+netgusto_baikal_frontend_contact_list:
+    pattern:  /contacts/
+    defaults: { _controller: NetgustoBaikalFrontendBundle:Contact:list }
+
+netgusto_baikal_frontend_profile:
+    pattern:  /profile/
+    defaults: { _controller: NetgustoBaikalFrontendBundle:Profile:index }
+
+netgusto_baikal_frontend_wellknown:
+    pattern:  /.well-known/{service}
+    defaults: { _controller: NetgustoBaikalFrontendBundle:WellKnown:index }
+
+netgusto_baikal_frontend_login:
+    pattern: /login
+    defaults: { _controller: NetgustoBaikalFrontendBundle:Auth:loginform }
+
+netgusto_baikal_frontend_login_check:
+    pattern: /login_check
+    # no controller, symfony intercepts this
+
+netgusto_baikal_frontend_logout:
+    pattern: /logout
+    # no controller, symfony intercepts this

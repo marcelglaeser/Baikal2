@@ -1,0 +1,9 @@
+parameters:
+
+    app_version: 1.0.0
+    app_distrib: regular
+
+    dav_realm: BaikalDAV
+
+    dav_caldav_enabled: true
+    dav_carddav_enabled: true

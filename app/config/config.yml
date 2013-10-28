@@ -1,0 +1,127 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+    - { resource: security.yml }
+    - { resource: baikal.yml }
+    - { resource: database.php }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    #trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
+    session:         ~
+
+# Assetic Configuration
+assetic:
+    debug: %kernel.debug%
+    use_controller: false
+    bundles: []
+    filters:
+        cssrewrite: ~
+        sass:    ~
+        compass: ~
+        lessphp: ~
+
+    assets:
+        # http://felicitus.org/2013/04/11/symfony2-assetic-twitter-bootstrap-bootswatch/
+
+        frontendbundle_css:
+            inputs:
+                - %kernel.root_dir%/../src/Netgusto/Baikal/FrontendBundle/Resources/less/style.less
+            filters:
+                - lessphp
+                - cssrewrite
+            output: css/frontendbundle.css
+
+        adminbundle_css:
+            inputs:
+                - %kernel.root_dir%/../src/Netgusto/Baikal/AdminBundle/Resources/less/style.less
+            filters:
+                - lessphp
+                - cssrewrite
+            output: css/adminbundle.css
+
+        bootstrap_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
+            filters:
+                - lessphp
+                - cssrewrite
+            output: css/bootstrap.css
+
+        bootstrap_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js
+            output: js/bootstrap.js
+
+        fullcalendar_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/arshaw/fullcalendar/fullcalendar/fullcalendar.css
+            filters:
+                - cssrewrite
+            output: css/fullcalendar.css
+
+        fullcalendar_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/arshaw/fullcalendar/fullcalendar/fullcalendar.min.js
+            output: js/fullcalendar.js
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        path: %database_path%
+        mapping_types:
+            bool: integer    # boolean type does not exist with SQLite
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                auto_mapping: true
+                dql:
+                    string_functions:
+                        datetostring: Base8\NetfridgeBundle\DQL\DateToStringFunction
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        app_version: %app_version%
+        app_distrib: %app_distrib%
+        dav_caldav_enabled: %dav_caldav_enabled%
+        dav_carddav_enabled: %dav_carddav_enabled%

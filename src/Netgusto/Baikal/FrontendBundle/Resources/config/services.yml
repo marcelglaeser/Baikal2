@@ -1,0 +1,7 @@
+parameters:
+#    netgusto_baikal_frontend.example.class: Netgusto\Baikal\FrontendBundle\Example
+
+services:
+#    netgusto_baikal_frontend.example:
+#        class: %netgusto_baikal_frontend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,105 @@
+{% extends "NetgustoBaikalAdminBundle:Layouts:standard.html.twig" %}
+
+{% set pagetitle = "Dashboard" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1><i class="fa fa-dashboard"></i> Dashboard <small>Welcome</small></h1>
+</div>
+
+<section id="about">
+    <h3>About this system</h3>
+    <div class="row">
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4>Version</h4>
+            <p>This systems runs Baïkal <span class="label label-info label-intext">{{ app_version }}-{{ app_distrib }}</em></span>.</p>
+            <p>Get Baïkal at <a href="http://baikal-server.com">http://baikal-server.com</a></p>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h4>Services</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><span class="hidden-xs">Web Admin</span><span class="visible-xs">Admin</span></td>
+                        <td><span class="label label-success label-intext pull-right">On</span><p></p></td>
+                    </tr>
+                    <tr>
+                        <td>CalDAV</td>
+                        <td>
+                            {% if dav_caldav_enabled == true %}
+                            <span class="label label-success label-intext pull-right">On</span>
+                            {% else %}
+                            <span class="label label-danger label-intext pull-right">Off</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CardDAV</td>
+                        <td>
+                            {% if dav_carddav_enabled == true %}
+                            <span class="label label-success label-intext pull-right">On</span>
+                            {% else %}
+                            <span class="label label-danger label-intext pull-right">Off</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h4>License and credits</h4>
+            <p>Baïkal is open source software licensed under the terms of the GNU GPL v3.</p>
+            <p>Baïkal is based upon other open source projects.<br>Read the <a href="https://github.com/jeromeschneider/Baikal/blob/master/README.md" target="_blank">README.md</a> file to learn about that.</p>
+            <p>Baïkal is developed by <a href="https://github.com/jeromeschneider" target="_blank">Jérôme Schneider</a> at <a href="http://netgusto.com">Netgusto</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section id="statistics">
+    <h3>Statistics</h3>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h4>Users</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Registered users</td>
+                        <td><span class="badge pull-right">{{ nbusers }}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <h4>CalDAV</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Calendars</td>
+                        <td><span class="badge pull-right">{{ nbcalendars }}</span></td>
+                    </tr>
+                    <tr>
+                        <td>Events</td>
+                        <td><span class="badge pull-right">{{ nbevents }}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <h4>CardDAV</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Address books</td>
+                        <td><span class="badge pull-right">{{ nbaddressbooks }}</span></td>
+                    </tr>
+                    <tr>
+                        <td>Contacts</td>
+                        <td><span class="badge pull-right">{{ nbaddressbookcontacts }}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
