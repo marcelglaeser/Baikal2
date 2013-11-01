@@ -84,3 +84,9 @@ netgusto_baikal_admin_addressbook_list_delete:
 netgusto_baikal_admin_addressbook_view:
     pattern:  /user/{user}/addressbook/{addressbook}/view
     defaults: { _controller: NetgustoBaikalAdminBundle:Addressbook/View:index }
+
+
+# Todolist
+netgusto_baikal_admin_user_todolist_list:
+    pattern:  /user/{id}/todolists
+    defaults: { _controller: NetgustoBaikalAdminBundle:Todolist/List:index }

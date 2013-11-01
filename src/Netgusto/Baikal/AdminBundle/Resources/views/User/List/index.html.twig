@@ -33,7 +33,7 @@
             {% set principal = user.getIdentityPrincipal() %}
             
             <div class="row">
-                <div class="col-md-6 col-lg-7">
+                <div class="col-md-6 col-lg-6">
                     <p>
                         <i class="lead fa fa-user"></i> {% if user.hasRole("ROLE_ADMIN") %}<i class="lead fa fa-star" style="color: #F24535;" title="Administrator"></i>{% endif %} <strong class="lead">{{ user.uiLabel() }}</strong><br>
                         {% if principal %}
@@ -80,6 +80,11 @@
 
     </div><!-- /.row -->
 </div><!-- /.container -->
+
+<div class="visible-xs">visible-xs</div>
+<div class="visible-sm">visible-sm</div>
+<div class="visible-md">visible-md</div>
+<div class="visible-lg">visible-lg</div>
 
 
 <!-- Modal -->
