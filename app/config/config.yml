@@ -30,6 +30,8 @@ assetic:
         sass:    ~
         compass: ~
         lessphp: ~
+        less:
+            node_paths: [/opt/lessc/lib, /usr/lib/node_modules, /usr/local/share/npm/lib/node_modules/]
 
     assets:
         # http://felicitus.org/2013/04/11/symfony2-assetic-twitter-bootstrap-bootswatch/
@@ -38,7 +40,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../src/Netgusto/Baikal/FrontendBundle/Resources/less/style.less
             filters:
-                - lessphp
+                - less
                 - cssrewrite
             output: css/frontendbundle.css
 
@@ -46,7 +48,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../src/Netgusto/Baikal/AdminBundle/Resources/less/style.less
             filters:
-                - lessphp
+                - less
                 - cssrewrite
             output: css/adminbundle.css
 
@@ -54,7 +56,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
             filters:
-                - lessphp
+                - less
                 - cssrewrite
             output: css/bootstrap.css
 
