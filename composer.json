@@ -30,7 +30,8 @@
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
 
-        "sabre/dav"     : "1.8.*",
+        "sabre/dav"     : "dev-master",
+        "sabre/http": "dev-master",
         "arshaw/fullcalendar": "1.6.*"
     },
     "repositories": [

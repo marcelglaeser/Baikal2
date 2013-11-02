@@ -1,3 +1,9 @@
+netgusto_baikal_frontend_davrerouting:
+    pattern: /login
+    defaults: { _controller: NetgustoBaikalFrontendBundle:DavRerouting:propfind }
+    requirements:
+        _method: propfind
+
 netgusto_baikal_frontend_homepage:
     pattern:  /
     defaults: { _controller: NetgustoBaikalFrontendBundle:Default:index }

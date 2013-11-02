@@ -47,6 +47,11 @@ security:
             pattern: ^/.well-known/.*$
             security: false
 
+        # 'Well-known' service is not under any firewall
+        frontend_davrerouting:
+            pattern: ^/principals$
+            security: false
+
         # DAV services are anonymously accessible
         # As SabreDAV handles auth
         davservices:
