@@ -28,8 +28,9 @@ class CalendarController extends Controller
         }
 
         # TODO: handle timezones properly (with regards to on calendar timezone)
-        $dtStart = new \DateTime(); $dtStart->setTimestamp($start);
-        $dtEnd = new \DateTime(); $dtEnd->setTimestamp($end);
+        $timezone = new \DateTimeZone('Europe/Paris');
+        $dtStart = new \DateTime(); $dtStart->setTimezone($timezone); $dtStart->setTimestamp($start);
+        $dtEnd = new \DateTime(); $dtEnd->setTimezone($timezone); $dtEnd->setTimestamp($end);
 
         $events = $this->getDoctrine()->getManager()
             ->getRepository('\Netgusto\Baikal\DavServicesBundle\Entity\CalendarEvent')
@@ -61,6 +62,9 @@ class CalendarController extends Controller
                 } else {
                     $allDay = FALSE;
                 }
+
+                $veventstart->setTimezone($timezone);
+                $veventend->setTimezone($timezone);
 
                 $eventcolor = substr($event->getCalendar()->getCalendarcolor(), 1, 6); # Stripping the '#' and the alpha part (last two hex-chars)
 
