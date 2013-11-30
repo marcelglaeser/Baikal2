@@ -12,6 +12,7 @@ app/db/*
 app/userdata/*
 app/db.sqlite
 build/
+bin/
 vendor
 composer.phar
 .DS_Store

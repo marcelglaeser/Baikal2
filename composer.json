@@ -21,6 +21,7 @@
         "sensio/generator-bundle": ">=2.2.0",
         "jms/security-extra-bundle": ">=1.4.0",
         "jms/di-extra-bundle": ">=1.3.0",
+        "phpunit/phpunit": "3.7.*",
 
         "leafo/lessphp": "dev-master",
         "twbs/bootstrap": ">=3.0.0",
@@ -30,8 +31,8 @@
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
 
-        "sabre/dav"     : "dev-master",
-        "sabre/http": "dev-master",
+        "sabre/dav": "dev-master",
+
         "arshaw/fullcalendar": "1.6.*"
     },
     "repositories": [
