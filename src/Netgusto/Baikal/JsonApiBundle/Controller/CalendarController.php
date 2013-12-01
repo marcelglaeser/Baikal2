@@ -27,7 +27,7 @@ class CalendarController extends Controller
             return $response;
         }
 
-        # TODO: handle timezones properly (with regards to on calendar timezone)
+        # TODO: handle timezones properly (with regards for the calendar timezone)
         $timezone = new \DateTimeZone('Europe/Paris');
         $dtStart = new \DateTime(); $dtStart->setTimezone($timezone); $dtStart->setTimestamp($start);
         $dtEnd = new \DateTime(); $dtEnd->setTimezone($timezone); $dtEnd->setTimestamp($end);

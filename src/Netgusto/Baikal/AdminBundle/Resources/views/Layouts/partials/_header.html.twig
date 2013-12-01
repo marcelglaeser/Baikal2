@@ -23,9 +23,9 @@
                     <div class="pull-right" style="width: 50%">
                         <ul class="nav navbar-nav">
                             <li><a href="{{ path('netgusto_baikal_admin_logout') }}"><i class="fa fa-power-off"></i> Signout</a></li>
-                            <li class="divider"></li>
 
                             {% if app.user.id is defined %}
+                            <li class="divider"></li>
                             <li><a href="{{ path('netgusto_baikal_admin_user_form_edit', { id: app.user.id }) }}"><i class="fa fa-smile-o"></i> My profile</a></li>
                             {% endif %}
 
@@ -48,8 +48,10 @@
                             <ul class="dropdown-menu">
                                 
                                 <li><a href="{{ path('netgusto_baikal_admin_logout') }}"><i class="fa fa-power-off"></i> Signout</a></li>
-                                <li class="divider"></li>
+
+
                                 {% if app.user.id is defined %}
+                                <li class="divider"></li>
                                 <li><a href="{{ path('netgusto_baikal_admin_user_form_edit', { id: app.user.id }) }}"><i class="fa fa-smile-o"></i> My profile</a></li>
                                 {% endif %}
 
