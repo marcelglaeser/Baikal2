@@ -76,6 +76,7 @@ security:
             pattern: ^/admin
             context: baikalsecuritycontext   # specified so that admin and frontend firewalls share the same auth context
             provider: chain_provider
+            access_denied_handler: netgusto_baikal_admin.access_denied_handler
 
             form_login:
                 login_path: /admin/login
@@ -103,11 +104,11 @@ security:
             pattern: ^/
             context: baikalsecuritycontext   # specified so that admin and frontend firewalls share the same auth context
             provider: chain_provider
+            access_denied_handler: netgusto_baikal_frontend.access_denied_handler
 
             form_login:
                 login_path: /login
                 check_path: /login_check
-
 
             logout:
                 path: /logout
@@ -125,4 +126,4 @@ security:
         - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_STATIC_ADMIN] }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: [ROLE_FRONTEND_USER, ROLE_STATIC_ADMIN, ROLE_ADMIN] }
+        - { path: ^/, roles: [ROLE_FRONTEND_USER] }

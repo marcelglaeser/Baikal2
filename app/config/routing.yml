@@ -1,3 +1,7 @@
+netgusto_baikal_core:
+    resource: "@NetgustoBaikalCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 netgusto_baikal_json_api:
     resource: "@NetgustoBaikalJsonApiBundle/Resources/config/routing.yml"
     prefix:   /api/json/

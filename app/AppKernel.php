@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Netgusto\Baikal\DavServicesBundle\NetgustoBaikalDavServicesBundle(),
             new Netgusto\Baikal\FrontendBundle\NetgustoBaikalFrontendBundle(),
             new Netgusto\Baikal\JsonApiBundle\NetgustoBaikalJsonApiBundle(),
+            new Netgusto\Baikal\CoreBundle\NetgustoBaikalCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

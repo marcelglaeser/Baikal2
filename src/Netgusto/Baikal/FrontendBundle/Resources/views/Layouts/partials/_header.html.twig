@@ -23,10 +23,13 @@
                     <div class="pull-right" style="width: 50%">
                         <ul class="nav navbar-nav">
                             <li><a href="{{ path('netgusto_baikal_frontend_logout') }}"><i class="fa fa-power-off"></i> Signout</a></li>
+
+                            {% if app.user.id is defined %}
                             <li class="divider"></li>
                             <li><a href="{{ path('netgusto_baikal_frontend_profile') }}"><i class="fa fa-smile-o"></i> My profile</a></li>
+                            {% endif %}
                             
-                            {% if is_granted('ROLE_ADMIN') %}
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_STATIC_ADMIN') %}
                                 <li><a href="{{ path('netgusto_baikal_admin_homepage') }}"><i class="fa fa-sign-in"></i> Switch to web admin</a></li>
                             {% endif %}
                         </ul>
@@ -41,10 +44,13 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ app.user.getUsername() }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('netgusto_baikal_frontend_logout') }}"><i class="fa fa-power-off"></i> Signout</a></li>
+
+                                {% if app.user.id is defined %}
                                 <li class="divider"></li>
                                 <li><a href="{{ path('netgusto_baikal_frontend_profile') }}"><i class="fa fa-smile-o"></i> My profile</a></li>
+                                {% endif %}
                                 
-                                {% if is_granted('ROLE_ADMIN') %}
+                                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_STATIC_ADMIN') %}
                                     <li><a href="{{ path('netgusto_baikal_admin_homepage') }}"><i class="fa fa-sign-in"></i> Switch to web admin</a></li>
                                 {% endif %}
                             </ul>
