@@ -24,7 +24,7 @@
         "phpunit/phpunit": "3.7.*",
 
         "leafo/lessphp": "dev-master",
-        "twbs/bootstrap": ">=3.0.0",
+        "twbs/bootstrap": "~3.0",
         "sonata-project/jquery-bundle": "1.9.1",
         "bmatzner/fontawesome-bundle": "dev-master",
 
