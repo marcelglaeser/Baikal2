@@ -6,7 +6,16 @@ Baïkal2 is based on SabreDAV and Symfony2.
 
 ## Installation (for the braves)
 
+**Notes:**
+
+* composer is required for the installation
+* the nodejs less compiler is required for the installation; Baïkal will look for it in these pathes `[/opt/lessc/lib, /usr/lib/node_modules, /usr/local/share/npm/lib/node_modules/]`; if yours is installed somewhere else, add your path to the property `assetic.filters.less.node_paths` in `app/config/config.yml`
+
+**Installation**
+
 ```bash
+git clone https://github.com/jeromeschneider/Baikal2.git
+cd Baikal2
 composer install
 php app/console doctrine:database:create
 php app/console doctrine:schema:create
@@ -14,7 +23,7 @@ php app/console assetic:dump
 php app/console assets:install
 ```
 
-Then edit app/config/security.yml to change the password (and the username if you feel like it) for the static user "staticadmin" (default pass is "password", so better do it before anything else).
+Then edit `app/config/security.yml` to change the password (and the username if you feel like it) for the static user "staticadmin" (default pass is "password", so better do it before anything else).
 
 ## Usage
 
