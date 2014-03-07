@@ -10,8 +10,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": ">=2.2.0",
-        "doctrine/orm": "2.*",
-        "doctrine/doctrine-bundle": "1.*",
+        "doctrine/orm": ">=2.0.0",
+        "doctrine/doctrine-bundle": "dev-master",
         "twig/extensions": ">=1.0.0",
         "symfony/assetic-bundle": ">=2.1.0",
         "symfony/swiftmailer-bundle": ">=2.2.0",
@@ -23,8 +23,8 @@
         "jms/di-extra-bundle": ">=1.3.0",
         "phpunit/phpunit": "3.7.*",
 
-        "leafo/lessphp": "dev-master",
-        "twbs/bootstrap": "~3.0",
+        "oyejorge/less.php": "dev-master",
+        "twbs/bootstrap": ">=3.0.0",
         "sonata-project/jquery-bundle": "1.9.1",
         "bmatzner/fontawesome-bundle": "dev-master",
 
@@ -32,7 +32,7 @@
         "knplabs/knp-menu-bundle": "dev-master",
 
         "sabre/dav": "dev-master",
-
+        "sabre/vobject": "dev-master",
         "arshaw/fullcalendar": "1.6.*"
     },
     "repositories": [
