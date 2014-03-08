@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-3 col-lg-3">
                     <nobr>
-                    <div class="visible-sm">
+                    <div class="visible-xs">
                         <div class="btn-group btn-group-justified pull-right">
                             <a class="btn btn-mini btn-default" href="{{ path('netgusto_baikal_admin_addressbook_view', { 'user' : user.id, 'addressbook' : addressbook.id }) }}"><i class="fa fa-eye"></i> View</a>
                             <a class="btn btn-mini btn-primary" href="{{ path('netgusto_baikal_admin_addressbook_form_edit', { 'user' : user.id, 'addressbook' : addressbook.id }) }}"><i class="fa fa-edit"></i> Edit</a>
@@ -60,8 +60,8 @@
                         </div>
                     </div>
 
-                    <div class="hidden-sm">
-                        <div class="hidden-sm visible-md btn-group btn-group-justified pull-right">
+                    <div class="visible-sm visible-md visible-lg">
+                        <div class="btn-group btn-group-justified pull-right">
                             <a class="btn btn-mini btn-default" href="{{ path('netgusto_baikal_admin_addressbook_view', { 'user' : user.id, 'addressbook' : addressbook.id }) }}"><i class="fa fa-eye"></i> View</a>
                             <a class="btn btn-primary" href="{{ path('netgusto_baikal_admin_addressbook_form_edit', { 'user' : user.id, 'addressbook' : addressbook.id }) }}"><i class="fa fa-edit"></i> Edit</a>
                             <a class="btn btn-danger delete" href="{{ path('netgusto_baikal_admin_addressbook_list_delete', { 'user' : user.id, 'addressbook': addressbook.id }) }}" data-addressbookname="{{ addressbook.getDisplayname() | escape() }}"><i class="fa fa-trash-o"></i> Delete</a>

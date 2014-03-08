@@ -59,7 +59,7 @@ class ProfileController extends Controller {
             return $this->redirect($this->generateUrl('netgusto_baikal_admin_user_list'));
         }
 
-        return $this->render('NetgustoBaikalAdminBundle:User/Form:new+edit.html.twig', array(
+        return $this->render('NetgustoBaikalFrontendBundle:Profile:index.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
         ));

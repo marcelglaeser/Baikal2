@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgusto\Baikal\AdminBundle\Controller\Calendar;
+namespace Netgusto\Baikal\FrontendBundle\Controller\Calendar;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,9 @@ use Netgusto\Baikal\DavServicesBundle\Entity\Calendar;
 class FormController extends Controller
 {
 
-    public function newAction(Request $request, User $user) {
+    public function newAction(Request $request) {
+
+        $user = $this->get('security.context')->getToken()->getUser();
 
         $formBuilder = $this->getFormBase();
         $form = $formBuilder->setData(array())->getForm();
@@ -47,16 +49,18 @@ class FormController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'Calendar <i class="fa fa-calendar"></i> <strong>' . htmlspecialchars($calendar->getDisplayname()) . '</strong> has been created.');
-            return $this->redirect($this->generateUrl('netgusto_baikal_admin_user_calendar_list', array('id' => $user->getId())));
+            return $this->redirect($this->generateUrl('netgusto_baikal_frontend_calendar_list', array('id' => $user->getId())));
         }
 
-        return $this->render('NetgustoBaikalAdminBundle:Calendar/Form:new+edit.html.twig', array(
+        return $this->render('NetgustoBaikalFrontendBundle:Calendar/Form:new+edit.html.twig', array(
             'form' => $form->createView(),
             'user' => $user
         ));
     }
 
-    public function editAction(Request $request, User $user, Calendar $calendar) {
+    public function editAction(Request $request, Calendar $calendar) {
+
+        $user = $this->get('security.context')->getToken()->getUser();
 
         $formBuilder = $this->getFormBase();
 
@@ -81,13 +85,13 @@ class FormController extends Controller
             $em->flush();
 
             $this->get('session')->getFlashBag()->add('notice', 'Calendar <i class="fa fa-calendar"></i> <strong>' . htmlspecialchars($calendar->getDisplayname()) . '</strong> has been updated.');
-            return $this->redirect($this->generateUrl('netgusto_baikal_admin_user_calendar_list', array('id' => $user->getId())));
+            return $this->redirect($this->generateUrl('netgusto_baikal_frontend_calendar_list', array('id' => $user->getId())));
         }
 
-        return $this->render('NetgustoBaikalAdminBundle:Calendar/Form:new+edit.html.twig', array(
+        return $this->render('NetgustoBaikalFrontendBundle:Calendar/Form:new+edit.html.twig', array(
             'form' => $form->createView(),
             'user' => $user,
-            'calendar' => $calendar,
+            'calendar' => $calendar
         ));
     }
 

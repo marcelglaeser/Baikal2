@@ -29,6 +29,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/frontendbundle.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.css') }}" />
+        {% block stylesheets %}{% endblock %}
 
     </head>
     <body>
@@ -48,5 +49,9 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="{{ asset('bundles/sonatajquery/jquery-1.9.1.js') }}"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
+        {% block scripts %}{% endblock %}
+        <script type="text/javascript">
+        {% block js %}{% endblock %}
+        </script>
     </body>
 </html>
