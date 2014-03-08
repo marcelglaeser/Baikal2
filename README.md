@@ -1,4 +1,4 @@
-# Baïkal Server
+# Baïkal Server - Lightweight CalDAV+CardDAV Server
 
 This is an incomplete **development version** of Baïkal Server 2 - NOT FOR PRODUCTION USE - seriously.
 
